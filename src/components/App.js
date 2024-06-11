@@ -1,4 +1,4 @@
-import '../components/App.css';
+import '../styles/App.css';
 import { Routes } from 'react-router-dom';
 
 function App() {
