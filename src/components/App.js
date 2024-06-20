@@ -1,4 +1,6 @@
-import '../styles/App.css';
+// import '../styles/App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../styles/style.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from './NavBar';
 import { useEffect, useState } from 'react';
@@ -11,6 +13,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    //auto-login
     if (user == null){
       fetch('/api/check_session')
       .then(response => {
@@ -20,6 +23,8 @@ function App() {
       })
     }
   }, [])
+
+  // if(!user) return <LoginPage onLogin={setUser} />;
 
   
 

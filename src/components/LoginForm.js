@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import "../styles/LoginForm.css"
-import { useNavigate } from 'react-router-dom';
+
 
 
 
 function LoginForm({ onLogin }) {
-    const navigate = useNavigate();
+    
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false); 
+    const[click, setClick] = useState(false);
+  
+  const handleClick = () => setClick(!click);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -68,8 +72,8 @@ function LoginForm({ onLogin }) {
         Don't have an account?
         <span
         style={{cursor:"pointer", "marginLeft": "10px"}}
-        onClick = {() => navigate("/signup")}
-    ><b>Sign Up</b>
+        
+    ><Link to='/signup' onClick={handleClick}><b>Sign Up</b></Link>
             </span>
 
     </p>

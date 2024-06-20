@@ -3,10 +3,12 @@ import "../styles/SignUpForm.css"
 
 
 function SignUpPage({ onLogin }) {
+    const [name, setName] = useState("");
     const [username, setUsername] = useState("");
     const[password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfrimation] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,7 +40,19 @@ function SignUpPage({ onLogin }) {
     <>
      <div className='form-container'>
      <form onSubmit={handleSubmit}>
+     <div className='loginform'>
+        {/* Name */}
+       <label htmlFor='name'>Name</label>
+        <input
+        type='text'
+        id='name'
+        autoComplete='off'
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        />
+      </div>
       <div className='loginform'>
+        {/* Username */}
        <label htmlFor='username'>Username</label>
         <input
         type='text'
@@ -49,6 +63,7 @@ function SignUpPage({ onLogin }) {
         />
       </div>
       <div className='loginform'>
+        {/* password */}
        <label htmlFor='password'>Password</label>
         <input
         type='password'
@@ -70,12 +85,23 @@ function SignUpPage({ onLogin }) {
         </div>
       
         <div className='loginform'>
+            {/* phoneNumber */}
         <label htmlFor='phoneNumber'>Phone Number</label>
         <input
         type='text'
         id='phoneNumeber'
         value={phoneNumber}
         onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+        </div>
+        <div className='loginform'>
+            {/* Address */}
+        <label htmlFor='address'>Address</label>
+        <input
+        type='text'
+        id='address'
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
         />
         </div>
         
